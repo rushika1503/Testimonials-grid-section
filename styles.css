@@ -7,11 +7,6 @@
   font-family: 'Barlow Semi Condensed', sans-serif;
 }
 
-/* html, body {
-    width: 90%;
-    overflow-x: hidden;
-  } */
-
 body {
   background-color: hsl(214, 17%, 92%);
   display: flex;
@@ -32,31 +27,10 @@ body {
     "jeanette"
     "patrick";
   gap: 20px;
-  width: 90%;
+  width: 100%;
   max-width: 1348px;
   align-items: stretch;
 }
-
-/* Desktop layout */
-@media (min-width: 768px) {
-  .testimonal-grid {
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-areas:
-      "daniel daniel jonathan kira"
-      "jeanette patrick patrick kira";
-  }
-}
-
-@media (max-width: 1024px) {
-    .testimonal-grid {
-      gap: 10px;
-      max-width: 95%;
-    }
-  
-    .testimonal {
-      padding: 20px;
-    }
-  }
 
 /* Grid area assignments */
 .testimonal-daniel    { grid-area: daniel; }
@@ -70,13 +44,12 @@ body {
   position: relative;
   padding: 30px;
   border-radius: 10px;
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-
-/* .testimonal:hover {
-  transform: scale(1.02);
-} */
 
 /* Individual card colors */
 .testimonal-daniel {
@@ -146,3 +119,52 @@ body {
   max-width: 80px;
   opacity: 0.2;
 }
+
+/* Responsive Breakpoints */
+
+/* Small Mobile: <480px */
+@media (max-width: 480px) {
+  .testimonal {
+    padding: 20px;
+    font-size: 14px;
+  }
+
+  .quotation {
+    width: 50px;
+  }
+}
+
+/* Tablets: 481px - 1023px */
+@media (min-width: 481px) and (max-width: 1023px) {
+  .testimonal-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "daniel"
+      "jonathan"
+     
+      "jeanette"
+      "patrick"
+      "kira";
+    gap: 20px;
+    width: 95%;
+  }
+
+  .testimonal {
+    padding: 25px;
+  }
+}
+
+/* Desktops: 1024px and above */
+@media (min-width: 1024px) {
+  .testimonal-grid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+      "daniel daniel jonathan kira"
+      "jeanette patrick patrick kira";
+    gap: 20px;
+  }
+
+  .testimonal-kira {
+    grid-row: span 2;
+  }
+} 
